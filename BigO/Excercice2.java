@@ -42,7 +42,7 @@ public class Excercice2 {
         return 1;//O(1)
     }
     
-     //1+1+1+n+n+n+n+n+n+n+1=4+7n
+     //1+1+1+n+n+n+n+n+n+n+1=4+7n->O(n)
 
     private void anotherFunction() {
         //do nothing
