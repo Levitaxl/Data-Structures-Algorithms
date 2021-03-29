@@ -19,7 +19,6 @@ public class LogAllPairsOfArray {
                   System.out.println(a[i]+" "+a[j]);
               }
           }
-          
           //O(n*n)
     }
 }
