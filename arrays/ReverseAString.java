@@ -24,6 +24,11 @@ public class ReverseAString {
         for (int i = n; i >= 0; i--) reverse+=ch[i];    
         
         System.out.println(reverse);
+        
+        //v2
+        StringBuilder sb=new StringBuilder(str);  
+        sb.reverse();  
+        System.out.println(sb.toString());
     }
            
 }
