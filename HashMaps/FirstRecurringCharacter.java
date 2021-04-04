@@ -6,6 +6,7 @@
 package HashMaps;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -13,39 +14,21 @@ import java.util.Map;
  * @author usuario
  */
 public class FirstRecurringCharacter {
-    
-     
-    public static void main(String[] args) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        int[] nums={2,1,1,2,3,4,1,2,4};
-        int counter=0;
-        int numberToShow = 0;
-        for (int i = 0; i < nums.length; i++) map.put(i, nums[i]);
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            int firstEntry=entry.getValue();
-            for (Map.Entry<Integer, Integer> entry2 : map.getValue().entrySet()) {
-                int secondEntry=entry2.getValue();
-                if(firstEntry==secondEntry) {
-                    int firstIndex=entry.getKey();
-                    int secondIndex=entry2.getKey();
-                    if(secondIndex-firstIndex<counter){
-                        counter=secondIndex-firstIndex;
-                        numberToShow = firstEntry;
-                    
-                }
-                    
-                //break;
-                //System.out.println("Key = " + entry2.getKey() + ", Value = " + entry2.getValue());
+    private Integer firstRecurringCharacter(int[] array) {
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (int element : array) {
+            if (hashSet.contains(element)) {
+                return element;
+            } else {
+                hashSet.add(element);
             }
         }
-            
-            
-
-        
-
-          
+        return null;
     }
-        System.out.println(numberToShow);
-    
-}
+
+    public static void main(String[] args) {
+        int[] arr = {2, 5, 5, 2, 3, 5, 1, 2, 4};
+        FirstRecurringCharacter obj = new FirstRecurringCharacter();
+        System.out.println(obj.firstRecurringCharacter(arr));
+    }
 }
