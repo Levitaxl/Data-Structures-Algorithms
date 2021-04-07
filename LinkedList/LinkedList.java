@@ -167,6 +167,46 @@ public class LinkedList {
         // return the List
         return list;
     }
+    
+    public static int count(LinkedList list){
+        
+        int counter=0;
+        
+        Node currNode = list.head,prev;
+        while (currNode != null) {
+            prev = currNode;
+            currNode = currNode.next;
+            counter++;
+        }
+        return counter;
+    }
+    
+    
+    
+    public static void reverse ( LinkedList list){
+        int counter=0;
+        int per=1;
+        Node currNode = list.head, prev = null,aux=null,nextNode=null,nextNode2=null;
+        int totalNodes=count(list);
+        int data=0;
+        for (int i = 0; i < totalNodes; i++) {
+            for (int j = 0; j < totalNodes-i; j++) {
+                if(currNode.next!=null){
+                    data=currNode.data;
+                    currNode.data=currNode.next.data;
+                    currNode.next.data=data;
+                    System.out.println(currNode.data);
+                    prev = currNode;
+                    currNode = currNode.next;
+                }
+            }
+        }
+        
+      printList(list);
+    
+    }
+    
+    
  
     // **************MAIN METHOD**************
  
@@ -190,59 +230,7 @@ public class LinkedList {
         list = insert(list, 7);
         list = insert(list, 8);
  
-        // Print the LinkedList
-        printList(list);
- 
-        //
-        // ******DELETION BY KEY******
-        //
- 
-        // Delete node with value 1
-        // In this case the key is ***at head***
-        deleteByKey(list, 1);
- 
-        // Print the LinkedList
-        printList(list);
- 
-        // Delete node with value 4
-        // In this case the key is present ***in the
-        // middle***
-        deleteByKey(list, 4);
- 
-        // Print the LinkedList
-        printList(list);
- 
-        // Delete node with value 10
-        // In this case the key is ***not present***
-        deleteByKey(list, 10);
- 
-        // Print the LinkedList
-        printList(list);
- 
-        //
-        // ******DELETION AT POSITION******
-        //
- 
-        // Delete node at position 0
-        // In this case the key is ***at head***
-        deleteAtPosition(list, 0);
- 
-        // Print the LinkedList
-        printList(list);
- 
-        // Delete node at position 2
-        // In this case the key is present ***in the
-        // middle***
-        deleteAtPosition(list, 2);
- 
-        // Print the LinkedList
-        printList(list);
- 
-        // Delete node at position 10
-        // In this case the key is ***not present***
-        deleteAtPosition(list, 10);
- 
-        // Print the LinkedList
-        printList(list);
+       // printList(list);
+        reverse(list);
     }
 }
