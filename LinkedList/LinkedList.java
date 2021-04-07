@@ -186,17 +186,17 @@ public class LinkedList {
     public static void reverse ( LinkedList list){
         int counter=0;
         int per=1;
-        Node currNode = list.head, prev = null,aux=null,nextNode=null,nextNode2=null;
+        Node currNode = list.head, prev = null,aux=null,nextNode=null,nextNode2=null,initNode=list.head;
         int totalNodes=count(list);
         int data=0;
         for (int i = 0; i < totalNodes; i++) {
+            currNode=initNode;
             for (int j = 0; j < totalNodes-i; j++) {
                 if(currNode.next!=null){
                     data=currNode.data;
                     currNode.data=currNode.next.data;
                     currNode.next.data=data;
                     System.out.println(currNode.data);
-                    prev = currNode;
                     currNode = currNode.next;
                 }
             }
