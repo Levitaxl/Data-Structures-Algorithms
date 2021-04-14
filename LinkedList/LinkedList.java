@@ -203,6 +203,23 @@ public class LinkedList {
     
     }
     
+    public static void reverse2 ( LinkedList list){
+        Node currNode = list.head;
+        Node prevNode = null;
+        Node nextNode = null;
+        
+        while(currNode  != null){
+            nextNode=currNode.next;
+            currNode.next=prevNode;
+            prevNode= currNode;
+            currNode=nextNode;
+        }
+        
+        list.head=prevNode;
+        
+        printList(list);
+    }
+    
     
  
     // **************MAIN METHOD**************
@@ -229,7 +246,7 @@ public class LinkedList {
         
         System.out.println("Pre-reverse");
         printList(list);
-        reverse(list);
+        reverse2(list);
         System.out.println("Post-reverse");
     }
 }
